@@ -1,0 +1,88 @@
+#my-sidebar {
+    height: 100vh;
+    padding: 15px;
+}
+
+#my-sidebar .sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#my-sidebar .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+#my-sidebar .sidebar-menu li {
+    margin: 10px 0;
+}
+
+#my-sidebar .sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+#my-sidebar .sidebar-menu li a:hover {
+    text-decoration: underline;
+}
+
+button.jumpbutton {
+ appearance: button;
+ border-radius: 16px;
+ border-width: 0 0 4px;
+ box-sizing: border-box;
+ color: #FFFFFF;
+ cursor: pointer;
+ display: inline-block;
+ font-size: 13px;
+ font-weight: 700;
+ letter-spacing: .8px;
+ line-height: 20px;
+ margin: 0;
+ outline: none;
+ overflow: visible;
+ padding: 13px 19px;
+ text-align: left;
+ touch-action: manipulation;
+ transform: translateZ(0);
+ transition: filter .2s;
+ user-select: none;
+ -webkit-user-select: none;
+ vertical-align: middle;
+ white-space: normal;
+}
+
+button.jumpbutton:after {
+ background-clip: padding-box;
+ background-color: black;
+ border: solid transparent;
+ border-radius: 16px;
+ border-width: 0 0 4px;
+ bottom: -4px;
+ content: "";
+ left: 0;
+ position: absolute;
+ right: 0;
+ top: 0;
+ z-index: -1;
+}
+
+button.jumpbutton:main, button.jumpbutton:focus {
+ user-select: auto;
+}
+
+button.jumpbutton:hover:not(:disabled) {
+ filter: brightness(1.1);
+}
+
+button.jumpbutton:disabled {
+ cursor: auto;
+}
+
+button:active:after {
+ border-width: 0 0 0px;
+}
+
+button:active {
+ padding-bottom: 10px;
+}
