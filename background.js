@@ -1,27 +1,31 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.action.setBadgeText({
-    text: 'OFF'
-  })
+    text: "OFF",
+  });
 });
 
-chrome.action.onClicked.addListener(async (tab) =>{
-  const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
-  const nextState = prevState === "ON" ? "OFF" : "ON";
+const chatgpt = "https://chatgpt.com";
 
-  await chrome.action.setBadgeText({
-    tabId: tab.id,
-    text: nextState
-  });
+chrome.action.onClicked.addListener(async (tab) => {
+  if (tab.url.startsWith(chatgpt)) {
+    const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
+    const nextState = prevState === "ON" ? "OFF" : "ON";
 
-  if (nextState === "ON"){
-    await chrome.scripting.insertCSS({
-      target: { tabId: tab.id },
-      files: ["line.css"]
-    })
-  } else if (nextState === "OFF"){
-    await chrome.scripting.removeCSS({
-      target: { tabId: tab.id },
-      files: ["line.css"]
-    })
+    await chrome.action.setBadgeText({
+      tabId: tab.id,
+      text: nextState,
+    });
+
+    if (nextState === "ON") {
+      await chrome.scripting.insertCSS({
+        target: { tabId: tab.id },
+        files: ["line.css"],
+      });
+    } else if (nextState === "OFF") {
+      await chrome.scripting.removeCSS({
+        target: { tabId: tab.id },
+        files: ["line.css"],
+      });
+    }
   }
 });
